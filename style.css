@@ -1,0 +1,93 @@
+hr {
+    color: white; /* Cor da linha */
+    background-color: white; /* Cor de fundo da linha (para ajustar a espessura) */
+    height: 1px; /* Espessura da linha */
+    border: none; /* Remove a borda padrão */
+}
+
+.line {
+    border-top: 5px solid white; /* Espessura, estilo e cor da linha */
+}
+
+.content::before {
+    content: '';
+    display: block;
+    width: 10px; /* Largura da linha */
+    height: 1px; /* Espessura da linha */
+    background-color: white; /* Cor da linha */
+}
+
+h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    color: white;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 5px 0;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #f8f9fa;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu ul li {
+    margin: 0 10px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .menu-toggle.active + .menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 40px;
+        right: 0;
+        background-color: #f8f9fa;
+    }
+    .menu-toggle.active + .menu ul li {
+        margin: 10px;
+    }
+}
